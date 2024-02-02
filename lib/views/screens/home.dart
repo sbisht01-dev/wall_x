@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wall_x/views/widgets/customeAppBar.dart';
+import 'package:wall_x/views/widgets/customAppBar.dart';
+import 'package:wall_x/views/widgets/searchBar.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -11,8 +12,9 @@ class Homepage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: CustomAppBar(),
+        title: const CustomAppBar(),
       ),
+      body: const Column(children: [Searchbar()]),
     );
   }
 }
