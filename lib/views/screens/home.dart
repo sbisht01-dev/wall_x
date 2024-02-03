@@ -15,40 +15,51 @@ class Homepage extends StatelessWidget {
         backgroundColor: Colors.white,
         title: const CustomAppBar(),
       ),
-      body: Column(children: [
-        const Searchbar(),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SizedBox(
-            height: Category.cHeight,
-            width: MediaQuery.of(context).size.width,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: ((context, index) => Category()),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(children: [
+          const Searchbar(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: Category.cHeight,
+              width: MediaQuery.of(context).size.width,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: ((context, index) => const Category()),
+              ),
             ),
           ),
-        ),
-        SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-          child: SizedBox(
-            height: 400,
-            width: MediaQuery.of(context).size.width,
-            child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 16,
-                    crossAxisSpacing: 16,
-                    mainAxisExtent: 400),
-                itemCount: 16,
-                itemBuilder: (context, index) => Container(
-                      height: 800,
-                      // width: 500,
-                      color: Colors.amberAccent,
-                    )),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              // width: MediaQuery.of(context).size.width,
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 16,
+                      mainAxisExtent: 300),
+                  itemCount: 16,
+                  itemBuilder: (context, index) => ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 230, 172, 47),
+                          ),
+                          child: Image.network(
+                            "https://w0.peakpx.com/wallpaper/736/818/HD-wallpaper-demon-slayer-anime-sword.jpg",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      )),
+            ),
           ),
-        )
-      ]),
+        ]),
+      ),
     );
   }
 }
