@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wall_x/views/screens/home.dart';
 
+const apiURL = "uoUDsoZt9sDd73WL6f6j5xy5S4CTbovxEWg3vdhICq56YTJCMQVjgwtu";
 void main() {
   runApp(const MyApp());
 }
