@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wall_x/views/widgets/customAppBar.dart';
-import 'package:wall_x/views/widgets/searchBar.dart';
+import 'package:wall_x/views/widgets/category.dart';
+import 'package:wall_x/views/widgets/app_bar.dart';
+import 'package:wall_x/views/widgets/search_bar.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -14,7 +15,21 @@ class Homepage extends StatelessWidget {
         backgroundColor: Colors.white,
         title: const CustomAppBar(),
       ),
-      body: const Column(children: [Searchbar()]),
+      body: Column(children: [
+        const Searchbar(),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            height: Category.cHeight,
+            width: MediaQuery.of(context).size.width,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: ((context, index) => Category()),
+            ),
+          ),
+        )
+      ]),
     );
   }
 }
