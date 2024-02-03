@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Category extends StatelessWidget {
-  Category({super.key});
+  const Category({super.key});
 
   static double cHeight = 250;
   static double cWidth = 350;
@@ -14,7 +14,7 @@ class Category extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(12)),
-            child: Container(
+            child: SizedBox(
               height: cHeight,
               width: cWidth,
               child: Image.network(

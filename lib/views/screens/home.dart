@@ -28,6 +28,25 @@ class Homepage extends StatelessWidget {
               itemBuilder: ((context, index) => Category()),
             ),
           ),
+        ),
+        SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+          child: SizedBox(
+            height: 400,
+            width: MediaQuery.of(context).size.width,
+            child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                    mainAxisExtent: 400),
+                itemCount: 16,
+                itemBuilder: (context, index) => Container(
+                      height: 800,
+                      // width: 500,
+                      color: Colors.amberAccent,
+                    )),
+          ),
         )
       ]),
     );
