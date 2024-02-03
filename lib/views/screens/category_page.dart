@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wall_x/views/widgets/category.dart';
 import 'package:wall_x/views/widgets/app_bar.dart';
-import 'package:wall_x/views/widgets/search_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CategoryPage extends StatelessWidget {
@@ -24,7 +22,7 @@ class CategoryPage extends StatelessWidget {
           child: Column(children: [
             Stack(
               children: [
-                Container(
+                SizedBox(
                   height: 250,
                   width: MediaQuery.of(context).size.width,
                   child: Image.network(
