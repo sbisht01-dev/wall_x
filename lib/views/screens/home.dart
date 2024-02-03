@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:wall_x/controller/apiOperations.dart';
 import 'package:wall_x/views/widgets/category.dart';
 import 'package:wall_x/views/widgets/app_bar.dart';
 import 'package:wall_x/views/widgets/search_bar.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
   @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  @override
+  void initState() {
+    super.initState();
+    APIoperations.getTrendingWallpapers();
+  }
+
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
