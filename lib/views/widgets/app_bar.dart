@@ -12,7 +12,7 @@ class CustomAppBar extends StatelessWidget {
           TextSpan(
               text: "Wallpaper X",
               style: TextStyle(
-                  color: Color.fromARGB(255, 34, 34, 34),
+                  color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 20,
                   fontWeight: FontWeight.w600))
         ]),
