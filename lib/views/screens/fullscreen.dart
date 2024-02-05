@@ -7,12 +7,15 @@ class FullScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: NetworkImage(imgURL), fit: BoxFit.cover)),
+      body: Hero(
+        tag: 'trendingWallList[index].imgSrc',
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: NetworkImage(imgURL), fit: BoxFit.cover)),
+        ),
       ),
     );
   }

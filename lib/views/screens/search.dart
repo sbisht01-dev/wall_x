@@ -33,7 +33,7 @@ class _SearchScreenState extends State<SearchScreen> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.white,
+          backgroundColor: const Color.fromARGB(255, 210, 133, 44),
           title: const CustomAppBar(),
         ),
         body: SingleChildScrollView(

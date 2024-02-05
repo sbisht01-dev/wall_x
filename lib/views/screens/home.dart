@@ -36,7 +36,7 @@ class _HomepageState extends State<Homepage> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Color.fromARGB(255, 209, 145, 40),
+          backgroundColor: const Color.fromARGB(255, 209, 145, 40),
           title: const CustomAppBar(),
         ),
         body: SingleChildScrollView(
@@ -81,17 +81,20 @@ class _HomepageState extends State<Homepage> {
                                           imgURL:
                                               trendingWallList[index].imgSrc)));
                             },
-                            child: ClipRRect(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10)),
-                              child: Container(
-                                height: 400,
-                                decoration: const BoxDecoration(
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                ),
-                                child: Image.network(
-                                  trendingWallList[index].imgSrc,
-                                  fit: BoxFit.cover,
+                            child: Hero(
+                              tag: 'trendingWallList[index].imgSrc',
+                              child: ClipRRect(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(10)),
+                                child: Container(
+                                  height: 400,
+                                  decoration: const BoxDecoration(
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                  ),
+                                  child: Image.network(
+                                    trendingWallList[index].imgSrc,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
