@@ -14,18 +14,18 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  late List<PhotosModel> trendingWallList;
+  late List<PhotosModel>? trendingWallList;
 
-  GetTrendingWallpaper() async {
+  getTrendingWallpaper() async {
     trendingWallList = await APIoperations.getTrendingWallpapers();
-    debugPrint('${trendingWallList.length}');
+    debugPrint('${trendingWallList?.length}');
     setState(() {});
   }
 
   @override
   void initState() {
     super.initState();
-    GetTrendingWallpaper();
+    getTrendingWallpaper();
   }
 
   @override
@@ -60,7 +60,7 @@ class _HomepageState extends State<Homepage> {
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
               child: SizedBox(
                 height: MediaQuery.of(context).size.height *
-                    (trendingWallList.length / 5),
+                    (trendingWallList?.length ?? 0 / 5),
                 // width: MediaQuery.of(context).size.width,
                 child: GridView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -70,16 +70,20 @@ class _HomepageState extends State<Homepage> {
                             mainAxisSpacing: 16,
                             crossAxisSpacing: 16,
                             mainAxisExtent: 300),
-                    itemCount: trendingWallList.length,
+                    itemCount: trendingWallList?.length,
                     itemBuilder: (context, index) => GridTile(
                           child: InkWell(
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => FullScreen(
-                                          imgURL:
-                                              trendingWallList[index].imgSrc)));
+                              if (trendingWallList?.length != null &&
+                                  trendingWallList!.length > index) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => FullScreen(
+                                            imgURL: trendingWallList?[index]
+                                                    ?.imgSrc ??
+                                                '')));
+                              }
                             },
                             child: Hero(
                               tag: 'trendingWallList[index].imgSrc',
@@ -92,7 +96,7 @@ class _HomepageState extends State<Homepage> {
                                     color: Color.fromARGB(255, 255, 255, 255),
                                   ),
                                   child: Image.network(
-                                    trendingWallList[index].imgSrc,
+                                    trendingWallList?[index]?.imgSrc ?? '',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
