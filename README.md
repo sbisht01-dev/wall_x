@@ -37,6 +37,6 @@ This project is a personal project and is not licensed.
 
 ## Support
 
-If you encounter any issues or have questions, please feel free to [open an issue](https://github.com/sbisht-dev/wall_x/issues).
+If you encounter any issues or have questions, please feel free to [open an issue](https://github.com/sbisht01-dev/wall_x/issues).
 
 Happy wallpaper exploring!
