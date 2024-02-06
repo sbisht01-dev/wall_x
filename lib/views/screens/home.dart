@@ -14,7 +14,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  late List<PhotosModel>? trendingWallList;
+  List<PhotosModel>? trendingWallList;
 
   getTrendingWallpaper() async {
     trendingWallList = await APIoperations.getTrendingWallpapers();
@@ -80,9 +80,8 @@ class _HomepageState extends State<Homepage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => FullScreen(
-                                            imgURL: trendingWallList?[index]
-                                                    ?.imgSrc ??
-                                                '')));
+                                            imgURL: trendingWallList![index]
+                                                .imgSrc)));
                               }
                             },
                             child: Hero(
@@ -96,7 +95,7 @@ class _HomepageState extends State<Homepage> {
                                     color: Color.fromARGB(255, 255, 255, 255),
                                   ),
                                   child: Image.network(
-                                    trendingWallList?[index]?.imgSrc ?? '',
+                                    trendingWallList![index].imgSrc,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
