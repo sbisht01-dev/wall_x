@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:wall_x/controller/apiOperations.dart';
 import 'package:wall_x/models/photosModel.dart';
@@ -14,6 +15,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  // Category usedHeight = Category();
   List<PhotosModel>? trendingWallList = [];
 
   getTrendingWallpaper() async {
@@ -47,12 +49,12 @@ class _HomepageState extends State<Homepage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
-                height: Category.cHeight,
+                height: CategoryView.cHeight,
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 4,
-                  itemBuilder: ((context, index) => const Category()),
+                  itemBuilder: ((context, index) => const CategoryView()),
                 ),
               ),
             ),
@@ -89,14 +91,15 @@ class _HomepageState extends State<Homepage> {
                               child: ClipRRect(
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(10)),
-                                child: Container(
-                                  height: 400,
-                                  decoration: const BoxDecoration(
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                  ),
-                                  child: Image.network(
-                                    trendingWallList![index].imgSrc,
-                                    fit: BoxFit.cover,
+                                child: CachedNetworkImage(
+                                  imageUrl: trendingWallList![index].imgSrc,
+                                  fit: BoxFit.cover,
+                                  placeholder: (context, url) =>
+                                      const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) =>
+                                      Container(
+                                    color: const Color.fromARGB(
+                                        255, 211, 211, 211),
                                   ),
                                 ),
                               ),

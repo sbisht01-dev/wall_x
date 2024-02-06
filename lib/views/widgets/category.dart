@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Category extends StatelessWidget {
-  const Category({super.key});
+class CategoryView extends StatelessWidget {
+  const CategoryView({super.key});
 
   static double cHeight = 250;
   static double cWidth = 350;
+
   @override
   Widget build(BuildContext context) {
     return Stack(
