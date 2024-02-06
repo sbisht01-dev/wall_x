@@ -14,7 +14,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  List<PhotosModel>? trendingWallList;
+  List<PhotosModel>? trendingWallList = [];
 
   getTrendingWallpaper() async {
     trendingWallList = await APIoperations.getTrendingWallpapers();
